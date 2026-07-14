@@ -4,7 +4,7 @@ export default function Footer() {
     return (
         <footer className="footer">
             <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-                <h2 className="footer-brand brand-font">VALORE</h2>
+                <h2 className="footer-brand brand-font">DOWLING</h2>
                 <div className="footer-content">
                     <div className="footer-column">
                         <h4>Shop</h4>
@@ -67,7 +67,7 @@ export default function Footer() {
                     color: '#666',
                     fontSize: '0.9rem'
                 }}>
-                    © 2024 VALORE. All rights reserved.
+                    © 2024 DOWLING. All rights reserved.
                 </div>
             </div>
         </footer>

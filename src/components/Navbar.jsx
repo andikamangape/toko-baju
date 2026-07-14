@@ -20,7 +20,7 @@ export default function Navbar({ darkMode, setDarkMode, cartCount, user }) {
         <nav className="navbar">
             <div className="nav-container">
                 <NavLink to="/home" className="nav-logo brand-font">
-                    VALORE
+                    DOWNLING
                 </NavLink>
 
                 <ul className="nav-links">

@@ -60,7 +60,7 @@ export default function AboutPage() {
             }}>
                 <div>
                     <h1 style={{ fontSize: '4rem', marginBottom: '1rem', fontFamily: 'Playfair Display, serif' }}>
-                        About VALORE
+                        About DOWNLING
                     </h1>
                     <p style={{ fontSize: '1.25rem', opacity: 0.9 }}>Where Quality Meets Timeless Design</p>
                 </div>
