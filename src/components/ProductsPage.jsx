@@ -57,7 +57,7 @@ export default function ProductsPage({ products, productsLoading, addToCart, sel
                     )}
                 </div>
 
-                <div className="filter-bar">
+                {/* <div className="filter-bar">
                     {filters.map(filter => (
                         <button
                             key={filter}
@@ -67,7 +67,7 @@ export default function ProductsPage({ products, productsLoading, addToCart, sel
                             {filter.charAt(0).toUpperCase() + filter.slice(1)}
                         </button>
                     ))}
-                </div>
+                </div> */}
             </div>
 
             {productsLoading ? (
