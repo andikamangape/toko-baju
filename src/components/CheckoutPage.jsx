@@ -80,8 +80,8 @@ ${formData.address}, ${formData.city}, ${formData.state} ${formData.zipCode}`;
         return (
             <div className="checkout-container" style={{ textAlign: 'center', padding: '4rem 2rem' }}>
                 <i className="fas fa-shopping-bag" style={{ fontSize: '4rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}></i>
-                <h2 style={{ marginBottom: '1rem' }}>Your cart is empty</h2>
-                <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>Add some items to your cart before checking out</p>
+                <h2 style={{ marginBottom: '1rem' }}>Keranjang Anda Kosong</h2>
+                <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>Tambahkan beberapa item ke keranjang sebelum melanjutkan ke checkout</p>
             </div>
         );
     }
@@ -89,17 +89,17 @@ ${formData.address}, ${formData.city}, ${formData.state} ${formData.zipCode}`;
     return (
         <div className="checkout-container">
             <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', fontFamily: 'Playfair Display, serif' }}>Checkout</h1>
-            <p style={{ color: 'var(--text-secondary)' }}>Complete your order in just a few steps</p>
+            <p style={{ color: 'var(--text-secondary)' }}>Lengkapi pesanan Anda dalam beberapa langkah sederhana</p>
 
             <div className="checkout-grid">
                 <form onSubmit={handleSubmit}>
                     {/* Contact Information */}
                     <div className="checkout-form" style={{ marginBottom: '2rem' }}>
                         <div className="form-section">
-                            <h3 className="form-title"><span className="step-number">1</span>Contact Information</h3>
+                            <h3 className="form-title"><span className="step-number">1</span>Informasi Kontak</h3>
                             <div className="form-row">
                                 <div className="form-group">
-                                    <label className="form-label">First Name</label>
+                                    <label className="form-label">Nama Depan</label>
                                     <input
                                         type="text"
                                         className="form-input"
@@ -109,7 +109,7 @@ ${formData.address}, ${formData.city}, ${formData.state} ${formData.zipCode}`;
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label className="form-label">Last Name</label>
+                                    <label className="form-label">Nama Belakang</label>
                                     <input
                                         type="text"
                                         className="form-input"
@@ -145,9 +145,9 @@ ${formData.address}, ${formData.city}, ${formData.state} ${formData.zipCode}`;
 
                         {/* Shipping Address */}
                         <div className="form-section">
-                            <h3 className="form-title"><span className="step-number">2</span>Shipping Address</h3>
+                            <h3 className="form-title"><span className="step-number">2</span>Alamat Pengiriman</h3>
                             <div className="form-group" style={{ position: 'relative' }}>
-                                <label className="form-label">Street Address</label>
+                                <label className="form-label">Alamat Jalan</label>
                                 <input
                                     type="text"
                                     className="form-input"
@@ -177,7 +177,7 @@ ${formData.address}, ${formData.city}, ${formData.state} ${formData.zipCode}`;
                             </div>
                             <div className="form-row">
                                 <div className="form-group">
-                                    <label className="form-label">City</label>
+                                    <label className="form-label">Kota</label>
                                     <input
                                         type="text"
                                         className="form-input"
@@ -187,7 +187,7 @@ ${formData.address}, ${formData.city}, ${formData.state} ${formData.zipCode}`;
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label className="form-label">State</label>
+                                    <label className="form-label">Provinsi</label>
                                     <input
                                         type="text"
                                         className="form-input"
@@ -198,7 +198,7 @@ ${formData.address}, ${formData.city}, ${formData.state} ${formData.zipCode}`;
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label className="form-label">ZIP Code</label>
+                                <label className="form-label">Kode POS</label>
                                 <input
                                     type="text"
                                     className="form-input"
