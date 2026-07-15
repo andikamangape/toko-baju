@@ -67,7 +67,7 @@ export default function Footer() {
                     color: '#666',
                     fontSize: '0.9rem'
                 }}>
-                    © 2024 DOWLING. All rights reserved.
+                    © 2026 DOWLING. dibuat dengan cinta🫶🏼.
                 </div>
             </div>
         </footer>
