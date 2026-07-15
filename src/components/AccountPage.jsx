@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth.js';
 import { getMyOrders } from '../lib/orders.js';
 import { OrderSkeleton, SkeletonBox } from './Skeleton.jsx';
+import { formatPrice } from '../lib/format.js';
 
 const STATUS_COLORS = {
     pending: '#f39c12', confirmed: '#3498db', shipped: '#9b59b6', completed: '#2ecc71', cancelled: '#e74c3c',
@@ -52,7 +53,7 @@ export default function AccountPage() {
                                 </span>
                             </div>
                             <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                                {o.order_items?.length ?? 0} item(s) · ${Number(o.total).toFixed(2)}
+                                {o.order_items?.length ?? 0} item(s) · {formatPrice(Number(o.total))}
                                 <span style={{
                                     display: 'inline-block', padding: '0.2rem 0.6rem', borderRadius: '12px',
                                     fontSize: '0.75rem', fontWeight: '600',

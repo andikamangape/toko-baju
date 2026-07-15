@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import useInfiniteScroll from '../hooks/useInfiniteScroll.js';
 import { ProductGridSkeleton } from './Skeleton.jsx';
+import { formatPrice } from '../lib/format.js';
 
 const PAGE_SIZE = 12;
 
@@ -151,9 +152,9 @@ function ProductCard({ product, onAddToCart }) {
                 <div className="product-info">
                     <h3 className="product-name">{product.name}</h3>
                     <div className="product-price">
-                        ${product.price.toFixed(2)}
+                        {formatPrice(product.price)}
                         {product.originalPrice && (
-                            <span className="original-price">${product.originalPrice.toFixed(2)}</span>
+                            <span className="original-price">{formatPrice(product.originalPrice)}</span>
                         )}
                     </div>
                 </div>

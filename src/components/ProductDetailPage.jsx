@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getProductById } from '../lib/products.js';
 import { ProductDetailSkeleton } from './Skeleton.jsx';
+import { formatPrice } from '../lib/format.js';
 
 const COLOR_MAP = {
     'Black': '#000000', 'White': '#FFFFFF', 'Navy': '#000080',
@@ -111,10 +112,10 @@ export default function ProductDetailPage({ addToCart, user }) {
                     <h1 style={{ fontSize: '2.2rem', fontFamily: 'Playfair Display, serif', marginBottom: '0.75rem' }}>{product.name}</h1>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-                        <span style={{ fontSize: '1.8rem', fontWeight: '700' }}>${Number(product.price).toFixed(2)}</span>
+                        <span style={{ fontSize: '1.8rem', fontWeight: '700' }}>{formatPrice(Number(product.price))}</span>
                         {product.original_price && (
                             <span style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', textDecoration: 'line-through' }}>
-                                ${Number(product.original_price).toFixed(2)}
+                                {formatPrice(Number(product.original_price))}
                             </span>
                         )}
                     </div>
@@ -238,7 +239,7 @@ export default function ProductDetailPage({ addToCart, user }) {
                         onMouseOut={e => product.stock && (e.target.style.opacity = '1')}
                     >
                         <i className="fas fa-shopping-bag" style={{ marginRight: '0.75rem' }}></i>
-                        {product.stock ? `Add to Cart — $${(Number(product.price) * quantity).toFixed(2)}` : 'Out of Stock'}
+                        {product.stock ? `Add to Cart — ${formatPrice(Number(product.price) * quantity)}` : 'Out of Stock'}
                     </button>
 
                     {/* Description */}

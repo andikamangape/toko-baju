@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { addProduct, updateProduct, deleteProduct } from '../lib/products.js';
 import { uploadProductImage, deleteProductImage } from '../lib/storage.js';
 import { getDashboardStats, getPopularProducts, getAllOrders, confirmOrder, updateOrderStatus } from '../lib/orders.js';
+import { formatPrice } from '../lib/format.js';
 
 const EMPTY = { id: null, name: '', price: '', originalPrice: '', badge: '', image: '', description: '', sizes: '', colors: '', stock: '' };
 
@@ -146,7 +147,7 @@ export default function AdminPage({ products, onChanged }) {
                         </div>
                         <div style={{ padding: '1.5rem', border: '1px solid var(--border-color)', borderRadius: '12px', background: 'var(--secondary-bg)' }}>
                             <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Total Revenue</div>
-                            <div style={{ fontSize: '2rem', fontWeight: '700' }}>${stats.totalRevenue.toFixed(2)}</div>
+                            <div style={{ fontSize: '2rem', fontWeight: '700' }}>{formatPrice(stats.totalRevenue)}</div>
                         </div>
                         <div style={{ padding: '1.5rem', border: '1px solid var(--border-color)', borderRadius: '12px', background: 'var(--secondary-bg)' }}>
                             <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Products</div>
@@ -240,7 +241,7 @@ export default function AdminPage({ products, onChanged }) {
                                 <tr key={p.id} style={{ borderBottom: '1px solid var(--border-color)' }}>
                                     <td style={{ padding: '0.5rem' }}><img src={p.image} alt="" style={{ width: 50, height: 65, objectFit: 'cover', borderRadius: 6 }} /></td>
                                     <td style={{ padding: '0.5rem' }}>{p.name}</td>
-                                    <td style={{ padding: '0.5rem' }}>${Number(p.price).toFixed(2)}</td>
+                                    <td style={{ padding: '0.5rem' }}>{formatPrice(Number(p.price))}</td>
                                     <td style={{ padding: '0.5rem', color: (p.stock || 0) < 5 ? 'var(--accent-color)' : 'inherit', fontWeight: (p.stock || 0) === 0 ? '600' : '400' }}>{p.stock ?? '-'}</td>
                                     <td style={{ padding: '0.5rem' }}>{p.badge || '-'}</td>
                                     <td style={{ padding: '0.5rem', display: 'flex', gap: '0.5rem' }}>
@@ -279,7 +280,7 @@ export default function AdminPage({ products, onChanged }) {
                                         <tr key={o.id} style={{ borderBottom: '1px solid var(--border-color)' }}>
                                             <td style={{ padding: '0.5rem', fontFamily: 'monospace', fontSize: '0.8rem', maxWidth: '120px', overflow: 'hidden', textOverflow: 'ellipsis' }}>{o.id.slice(0, 8)}...</td>
                                             <td style={{ padding: '0.5rem' }}>{(o.order_items || []).length} item(s)</td>
-                                            <td style={{ padding: '0.5rem', fontWeight: '600' }}>${Number(o.total).toFixed(2)}</td>
+                                            <td style={{ padding: '0.5rem', fontWeight: '600' }}>{formatPrice(Number(o.total))}</td>
                                             <td style={{ padding: '0.5rem' }}>
                                                 <span style={{
                                                     display: 'inline-block', padding: '0.2rem 0.6rem', borderRadius: '12px',

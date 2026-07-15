@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ADDRESS_SUGGESTIONS, SHIPPING_OPTIONS } from '../data.js';
 import { createOrder } from '../lib/orders.js';
+import { formatPrice } from '../lib/format.js';
 
 export default function CheckoutPage({ cart, removeFromCart, showToastMessage, clearCart, user }) {
     const [formData, setFormData] = useState({
@@ -43,7 +44,7 @@ export default function CheckoutPage({ cart, removeFromCart, showToastMessage, c
             const order = await createOrder({ cart, address: formData, userId: user?.id || null, total });
             const shippingMethod = SHIPPING_OPTIONS.find(s => s.id === selectedShipping);
             const itemsText = cart.map((item, i) =>
-                `${i + 1}. ${item.name} (x${item.quantity || 1}) - $${(item.price * (item.quantity || 1)).toFixed(2)}`
+                `${i + 1}. ${item.name} (x${item.quantity || 1}) - ${formatPrice(item.price * (item.quantity || 1))}`
             ).join('\n');
 
             const message = `Halo, saya ingin memesan:
@@ -56,9 +57,9 @@ Telepon: ${formData.phone}
 Pesanan:
 ${itemsText}
 
-Subtotal: $${subtotal.toFixed(2)}
-Ongkos Kirim (${shippingMethod.name}): $${shippingCost.toFixed(2)}
-Total: $${total.toFixed(2)}
+Subtotal: ${formatPrice(subtotal)}
+Ongkos Kirim (${shippingMethod.name}): ${formatPrice(shippingCost)}
+Total: ${formatPrice(total)}
 
 Alamat Pengiriman:
 ${formData.address}, ${formData.city}, ${formData.state} ${formData.zipCode}`;
@@ -228,7 +229,7 @@ ${formData.address}, ${formData.city}, ${formData.state} ${formData.zipCode}`;
                                     </div>
                                 </div>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                                    <span style={{ fontWeight: '600' }}>$${(item.price * (item.quantity || 1)).toFixed(2)}</span>
+                                    <span style={{ fontWeight: '600' }}>{formatPrice(item.price * (item.quantity || 1))}</span>
                                     <button
                                         onClick={() => removeFromCart(item.id)}
                                         style={{
@@ -259,26 +260,26 @@ ${formData.address}, ${formData.city}, ${formData.state} ${formData.zipCode}`;
                                     <div style={{ fontWeight: '500', fontSize: '0.9rem' }}>{option.name}</div>
                                     <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{option.days}</div>
                                 </div>
-                                <div style={{ fontWeight: '600' }}>${option.price.toFixed(2)}</div>
+                                <div style={{ fontWeight: '600' }}>{formatPrice(option.price)}</div>
                             </div>
                         ))}
                     </div>
 
                     <div className="summary-item">
                         <span>Subtotal</span>
-                        <span>${subtotal.toFixed(2)}</span>
+                        <span>{formatPrice(subtotal)}</span>
                     </div>
                     <div className="summary-item">
                         <span>Shipping</span>
-                        <span>${shippingCost.toFixed(2)}</span>
+                        <span>{formatPrice(shippingCost)}</span>
                     </div>
                     <div className="summary-item">
                         <span>Tax (8%)</span>
-                        <span>${tax.toFixed(2)}</span>
+                        <span>{formatPrice(tax)}</span>
                     </div>
                     <div className="summary-total">
                         <span>Total</span>
-                        <span>${total.toFixed(2)}</span>
+                        <span>{formatPrice(total)}</span>
                     </div>
 
                     <button
