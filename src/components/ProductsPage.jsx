@@ -28,14 +28,14 @@ export default function ProductsPage({ products, productsLoading, addToCart, sel
     return (
         <div className="products-section">
             <div className="section-header">
-                <h1 className="section-title">Products</h1>
-                <p style={{ color: 'var(--text-secondary)' }}>Discover our curated collection of premium fashion pieces</p>
+                <h1 className="section-title">Produk</h1>
+                <p style={{ color: 'var(--text-secondary)' }}>Temukan koleksi fashion premium pilihan kami</p>
 
                 <div style={{ position: 'relative', maxWidth: '400px', width: '100%', margin: '1rem auto 0' }}>
                     <i className="fas fa-search" style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)', fontSize: '0.9rem' }}></i>
                     <input
                         type="text"
-                        placeholder="Search products..."
+                        placeholder="Cari produk..."
                         value={searchQuery}
                         onChange={e => setSearchQuery(e.target.value)}
                         style={{
@@ -79,8 +79,8 @@ export default function ProductsPage({ products, productsLoading, addToCart, sel
                     {filteredProducts.length === 0 ? (
                         <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '3rem 1rem', color: 'var(--text-secondary)' }}>
                             <i className="fas fa-search" style={{ fontSize: '2.5rem', marginBottom: '1rem', opacity: 0.5 }}></i>
-                            <p style={{ fontSize: '1.1rem' }}>No products found</p>
-                            {searchQuery && <p style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>Try a different search term</p>}
+                            <p style={{ fontSize: '1.1rem' }}>Produk tidak ditemukan</p>
+                            {searchQuery && <p style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>Coba kata kunci pencarian lain</p>}
                         </div>
                     ) : (
                         visibleProducts.map(product => (
@@ -121,7 +121,7 @@ function ProductCard({ product, onAddToCart }) {
                             borderRadius: '6px', fontSize: '0.85rem', fontWeight: '600',
                             letterSpacing: '0.5px', whiteSpace: 'nowrap',
                         }}>
-                            Out of Stock
+                            Stok Habis
                         </span>
                     )}
                     {lowStock && (
@@ -130,7 +130,7 @@ function ProductCard({ product, onAddToCart }) {
                             background: 'var(--accent-color)', color: '#fff',
                             padding: '0.2rem 0.6rem', borderRadius: '4px', fontSize: '0.75rem',
                         }}>
-                            Only {stock} left
+                            Sisa {stock}
                         </span>
                     )}
                     <div className="product-actions" onClick={e => e.stopPropagation()}>

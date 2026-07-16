@@ -78,14 +78,14 @@ export default function App() {
     const addToCart = useCallback((product) => {
         const stock = product.stock || 0;
         if (stock === 0) {
-            showToastMessage(`${product.name} is out of stock`);
+            showToastMessage(`${product.name} stok habis`);
             return;
         }
         setCart(prev => {
             const existing = prev.find(item => item.id === product.id);
             const currentQty = existing ? (existing.quantity || 1) : 0;
             if (currentQty >= stock) {
-                setTimeout(() => showToastMessage(`Only ${stock} item(s) available for ${product.name}`), 0);
+                setTimeout(() => showToastMessage(`Hanya ${stock} item tersedia untuk ${product.name}`), 0);
                 return prev;
             }
             if (user) setTimeout(() => dbAddToCart(product.id).catch(console.error), 0);

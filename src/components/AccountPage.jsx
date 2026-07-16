@@ -36,10 +36,10 @@ export default function AccountPage() {
 
     return (
         <div style={{ maxWidth: 1000, margin: '0 auto', padding: '2rem' }}>
-            <h1 className="section-title" style={{ marginBottom: '0.5rem' }}>My Account</h1>
+            <h1 className="section-title" style={{ marginBottom: '0.5rem' }}>Akun Saya</h1>
             <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>{user.email}</p>
 
-            <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Order History</h2>
+            <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Riwayat Pesanan</h2>
             {orders.length === 0 ? (
                 <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>Belum ada pesanan.</p>
             ) : (
@@ -53,7 +53,7 @@ export default function AccountPage() {
                                 </span>
                             </div>
                             <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                                {o.order_items?.length ?? 0} item(s) · {formatPrice(Number(o.total))}
+                                {o.order_items?.length ?? 0} item · {formatPrice(Number(o.total))}
                                 <span style={{
                                     display: 'inline-block', padding: '0.2rem 0.6rem', borderRadius: '12px',
                                     fontSize: '0.75rem', fontWeight: '600',

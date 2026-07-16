@@ -132,7 +132,7 @@ ${formData.address}, ${formData.city}, ${formData.state} ${formData.zipCode}`;
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label className="form-label">Phone</label>
+                                    <label className="form-label">Telepon</label>
                                     <input
                                         type="tel"
                                         className="form-input"
@@ -216,7 +216,7 @@ ${formData.address}, ${formData.city}, ${formData.state} ${formData.zipCode}`;
 
                 {/* Order Summary */}
                 <div className="order-summary">
-                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontWeight: '600' }}>Order Summary</h3>
+                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontWeight: '600' }}>Ringkasan Pesanan</h3>
 
                     <div style={{ maxHeight: '250px', overflowY: 'auto', marginBottom: '1rem' }}>
                         {cart.map((item, index) => (
@@ -225,7 +225,7 @@ ${formData.address}, ${formData.city}, ${formData.state} ${formData.zipCode}`;
                                     <img src={item.image} alt={item.name} style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '6px' }} />
                                     <div>
                                         <div style={{ fontSize: '0.9rem', fontWeight: '500' }}>{item.name}</div>
-                                        <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Qty: {item.quantity || 1}</div>
+                                        <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Jml: {item.quantity || 1}</div>
                                     </div>
                                 </div>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
@@ -248,7 +248,7 @@ ${formData.address}, ${formData.city}, ${formData.state} ${formData.zipCode}`;
                     </div>
 
                     <div className="shipping-calculator">
-                        <h4 style={{ fontSize: '0.95rem', fontWeight: '600', marginBottom: '0.75rem' }}>Shipping Method</h4>
+                        <h4 style={{ fontSize: '0.95rem', fontWeight: '600', marginBottom: '0.75rem' }}>Metode Pengiriman</h4>
                         {SHIPPING_OPTIONS.map(option => (
                             <div
                                 key={option.id}
@@ -270,11 +270,11 @@ ${formData.address}, ${formData.city}, ${formData.state} ${formData.zipCode}`;
                         <span>{formatPrice(subtotal)}</span>
                     </div>
                     <div className="summary-item">
-                        <span>Shipping</span>
+                        <span>Ongkos Kirim</span>
                         <span>{formatPrice(shippingCost)}</span>
                     </div>
                     <div className="summary-item">
-                        <span>Tax (8%)</span>
+                        <span>Pajak (8%)</span>
                         <span>{formatPrice(tax)}</span>
                     </div>
                     <div className="summary-total">

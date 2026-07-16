@@ -37,23 +37,23 @@ export default function AuthPage() {
     return (
         <div style={{ maxWidth: 420, margin: '4rem auto', padding: '0 1.5rem' }}>
             <h1 className="section-title" style={{ marginBottom: '1.5rem' }}>
-                {mode === 'login' ? 'Login' : 'Register'}
+                {mode === 'login' ? 'Masuk' : 'Daftar'}
             </h1>
 
             <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {mode === 'signup' && (
-                    <input style={inputStyle} placeholder="Full Name" value={fullName}
+                    <input style={inputStyle} placeholder="Nama Lengkap" value={fullName}
                         onChange={e => setFullName(e.target.value)} required />
                 )}
                 <input style={inputStyle} type="email" placeholder="Email" value={email}
                     onChange={e => setEmail(e.target.value)} required />
-                <input style={inputStyle} type="password" placeholder="Password" value={password}
+                <input style={inputStyle} type="password" placeholder="Kata Sandi" value={password}
                     onChange={e => setPassword(e.target.value)} required minLength={6} />
 
                 {error && <p style={{ color: '#ff4757', fontSize: '0.9rem' }}>{error}</p>}
 
                 <button type="submit" className="checkout-btn" style={{ marginTop: '0.5rem' }}>
-                    {mode === 'login' ? 'Login' : 'Register'}
+                    {mode === 'login' ? 'Masuk' : 'Daftar'}
                 </button>
             </form>
 
@@ -61,7 +61,7 @@ export default function AuthPage() {
                 {mode === 'login' ? 'Belum punya akun? ' : 'Sudah punya akun? '}
                 <a href="#" style={{ color: 'var(--accent-color)' }}
                     onClick={(e) => { e.preventDefault(); setMode(mode === 'login' ? 'signup' : 'login'); setError(''); }}>
-                    {mode === 'login' ? 'Register' : 'Login'}
+                    {mode === 'login' ? 'Daftar' : 'Masuk'}
                 </a>
             </p>
         </div>

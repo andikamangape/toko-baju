@@ -7,34 +7,34 @@ export default function Footer() {
                 <h2 className="footer-brand brand-font">DOWLING</h2>
                 <div className="footer-content">
                     <div className="footer-column">
-                        <h4>Shop</h4>
+                        <h4>Belanja</h4>
                         <ul className="footer-links">
-                            <li><Link to="/products">All Products</Link></li>
-                            <li><Link to="/products">New Arrivals</Link></li>
-                            <li><Link to="/products">Best Sellers</Link></li>
-                            <li><Link to="/products">Sale Items</Link></li>
+                            <li><Link to="/products">Semua Produk</Link></li>
+                            <li><Link to="/products">Produk Baru</Link></li>
+                            <li><Link to="/products">Terlaris</Link></li>
+                            <li><Link to="/products">Diskon</Link></li>
                         </ul>
                     </div>
                     <div className="footer-column">
-                        <h4>Company</h4>
+                        <h4>Perusahaan</h4>
                         <ul className="footer-links">
-                            <li><Link to="/about">About Us</Link></li>
-                            <li><Link to="/about">Careers</Link></li>
-                            <li><Link to="/about">Press</Link></li>
-                            <li><Link to="/about">Sustainability</Link></li>
+                            <li><Link to="/about">Tentang Kami</Link></li>
+                            <li><Link to="/about">Karir</Link></li>
+                            <li><Link to="/about">Pers</Link></li>
+                            <li><Link to="/about">Keberlanjutan</Link></li>
                         </ul>
                     </div>
                     <div className="footer-column">
-                        <h4>Support</h4>
+                        <h4>Dukungan</h4>
                         <ul className="footer-links">
-                            <li><Link to="/about">Contact Us</Link></li>
+                            <li><Link to="/about">Hubungi Kami</Link></li>
                             <li><Link to="/about">FAQs</Link></li>
-                            <li><Link to="/about">Shipping Info</Link></li>
-                            <li><Link to="/about">Returns</Link></li>
+                            <li><Link to="/about">Info Pengiriman</Link></li>
+                            <li><Link to="/about">Pengembalian</Link></li>
                         </ul>
                     </div>
                     <div className="footer-column">
-                        <h4>Connect</h4>
+                        <h4>Ikuti Kami</h4>
                         <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem' }}>
                             <a href="#" style={{ color: '#888', fontSize: '1.25rem', transition: 'color 0.3s' }}
                                onMouseEnter={(e) => e.target.style.color = 'white'}

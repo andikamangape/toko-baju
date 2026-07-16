@@ -71,8 +71,8 @@ export default function ProductDetailPage({ addToCart, user }) {
         return (
             <div className="checkout-container" style={{ textAlign: 'center', padding: '4rem 2rem' }}>
                 <i className="fas fa-exclamation-circle" style={{ fontSize: '4rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}></i>
-                <h2 style={{ marginBottom: '1rem' }}>Product not found</h2>
-                <Link to="/products" style={{ color: 'var(--accent-color)' }}>Back to products</Link>
+                <h2 style={{ marginBottom: '1rem' }}>Produk tidak ditemukan</h2>
+                <Link to="/products" style={{ color: 'var(--accent-color)' }}>Kembali ke produk</Link>
             </div>
         );
     }
@@ -84,7 +84,7 @@ export default function ProductDetailPage({ addToCart, user }) {
     return (
         <div className="checkout-container" style={{ paddingTop: '2rem' }}>
             <Link to="/products" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem' }}>
-                <i className="fas fa-arrow-left"></i> Back to Products
+                <i className="fas fa-arrow-left"></i> Kembali ke Produk
             </Link>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'start' }}>
@@ -123,7 +123,7 @@ export default function ProductDetailPage({ addToCart, user }) {
                     {/* Size */}
                     {sizes.length > 0 && (
                         <div style={{ marginBottom: '1.5rem' }}>
-                            <h4 style={{ fontSize: '0.9rem', fontWeight: '600', marginBottom: '0.5rem' }}>Size</h4>
+                            <h4 style={{ fontSize: '0.9rem', fontWeight: '600', marginBottom: '0.5rem' }}>Ukuran</h4>
                             <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                                 {sizes.map(s => (
                                     <button
@@ -148,7 +148,7 @@ export default function ProductDetailPage({ addToCart, user }) {
                     {colors.length > 0 && (
                         <div style={{ marginBottom: '1.5rem' }}>
                             <h4 style={{ fontSize: '0.9rem', fontWeight: '600', marginBottom: '0.5rem' }}>
-                                Color <span style={{ fontWeight: '400', color: 'var(--text-secondary)' }}>{selectedColor}</span>
+                                Warna <span style={{ fontWeight: '400', color: 'var(--text-secondary)' }}>{selectedColor}</span>
                             </h4>
                             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                                 {colors.map(c => (
@@ -179,19 +179,19 @@ export default function ProductDetailPage({ addToCart, user }) {
                         {(product.stock || 0) > 0 ? (
                             <span style={{ color: '#2ecc71', fontWeight: '600' }}>
                                 <i className="fas fa-check-circle" style={{ marginRight: '0.5rem' }}></i>
-                                In Stock ({product.stock} available)
+                                Stok Tersedia ({product.stock} tersedia)
                             </span>
                         ) : (
                             <span style={{ color: 'var(--accent-color)', fontWeight: '600' }}>
                                 <i className="fas fa-times-circle" style={{ marginRight: '0.5rem' }}></i>
-                                Out of Stock
+                                Stok Habis
                             </span>
                         )}
                     </div>
 
                     {/* Quantity */}
                     <div style={{ marginBottom: '2rem' }}>
-                        <h4 style={{ fontSize: '0.9rem', fontWeight: '600', marginBottom: '0.5rem' }}>Quantity</h4>
+                        <h4 style={{ fontSize: '0.9rem', fontWeight: '600', marginBottom: '0.5rem' }}>Jumlah</h4>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                             <button
                                 onClick={() => setQuantity(q => Math.max(1, q - 1))}
@@ -239,13 +239,13 @@ export default function ProductDetailPage({ addToCart, user }) {
                         onMouseOut={e => product.stock && (e.target.style.opacity = '1')}
                     >
                         <i className="fas fa-shopping-bag" style={{ marginRight: '0.75rem' }}></i>
-                        {product.stock ? `Add to Cart — ${formatPrice(Number(product.price) * quantity)}` : 'Out of Stock'}
+                        {product.stock ? `Tambah ke Keranjang — ${formatPrice(Number(product.price) * quantity)}` : 'Stok Habis'}
                     </button>
 
                     {/* Description */}
                     {product.description && (
                         <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem' }}>
-                            <h4 style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '0.75rem' }}>Description</h4>
+                            <h4 style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '0.75rem' }}>Deskripsi</h4>
                             <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', fontSize: '0.95rem' }}>{product.description}</p>
                         </div>
                     )}

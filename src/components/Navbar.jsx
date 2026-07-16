@@ -24,9 +24,9 @@ export default function Navbar({ darkMode, setDarkMode, cartCount, user }) {
                 </NavLink>
 
                 <ul className="nav-links">
-                    <li><NavLink to="/home" className={getLinkClass}>Home</NavLink></li>
-                    <li><NavLink to="/products" className={getLinkClass}>Products</NavLink></li>
-                    <li><NavLink to="/about" className={getLinkClass}>About Brand</NavLink></li>
+                    <li><NavLink to="/home" className={getLinkClass}>Beranda</NavLink></li>
+                    <li><NavLink to="/products" className={getLinkClass}>Produk</NavLink></li>
+                    <li><NavLink to="/about" className={getLinkClass}>Tentang Brand</NavLink></li>
                     <li><NavLink to="/checkout" className={getLinkClass}>Checkout</NavLink></li>
                     {isAdmin && <li><NavLink to="/admin" className={getLinkClass}>Admin</NavLink></li>}
                 </ul>
@@ -40,11 +40,11 @@ export default function Navbar({ darkMode, setDarkMode, cartCount, user }) {
                         {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
                     </NavLink>
                     {user ? (
-                        <button className="icon-btn" onClick={handleSignOut} title="Sign out">
+                        <button className="icon-btn" onClick={handleSignOut} title="Keluar">
                             <i className="fas fa-sign-out-alt"></i>
                         </button>
                     ) : (
-                        <NavLink to="/login" className="icon-btn" title="Login">
+                        <NavLink to="/login" className="icon-btn" title="Masuk">
                             <i className="fas fa-user"></i>
                         </NavLink>
                     )}
@@ -67,9 +67,9 @@ export default function Navbar({ darkMode, setDarkMode, cartCount, user }) {
                     flexDirection: 'column',
                     gap: '1rem'
                 }}>
-                    <NavLink to="/home" className="nav-link" onClick={closeMobile}>Home</NavLink>
-                    <NavLink to="/products" className="nav-link" onClick={closeMobile}>Products</NavLink>
-                    <NavLink to="/about" className="nav-link" onClick={closeMobile}>About Brand</NavLink>
+                    <NavLink to="/home" className="nav-link" onClick={closeMobile}>Beranda</NavLink>
+                    <NavLink to="/products" className="nav-link" onClick={closeMobile}>Produk</NavLink>
+                    <NavLink to="/about" className="nav-link" onClick={closeMobile}>Tentang Brand</NavLink>
                     <NavLink to="/checkout" className="nav-link" onClick={closeMobile}>Checkout</NavLink>
                     {isAdmin && <NavLink to="/admin" className="nav-link" onClick={closeMobile}>Admin</NavLink>}
                 </div>

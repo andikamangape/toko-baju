@@ -7,9 +7,9 @@ export default function WelcomePage() {
         <div className="welcome-container">
             <div className="welcome-content">
                 <h1 className="welcome-logo brand-font">VALORE</h1>
-                <p className="welcome-tagline">Elevate Your Style</p>
+                <p className="welcome-tagline">Tingkatkan Gayamu</p>
                 <button className="enter-btn" onClick={() => navigate('/home')}>
-                    Enter Store
+                    Masuk Toko
                 </button>
             </div>
             <style>{`

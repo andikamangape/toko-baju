@@ -23,10 +23,10 @@ export default function HomePage() {
                 }}></div>
                 <div style={{ zIndex: 10, textAlign: 'left', maxWidth: '600px', padding: '2rem', color: 'white' }}>
                     <h1 style={{ fontSize: '3.5rem', marginBottom: '1rem', fontFamily: 'Playfair Display, serif' }}>
-                        Discover Your Signature Style
+                        Temukan Gaya Signature-mu
                     </h1>
                     <p style={{ fontSize: '1.25rem', marginBottom: '2rem', lineHeight: 1.6 }}>
-                        Curated collections for the modern individual who values quality and sophistication.
+                        Koleksi kurasi untuk individu modern yang menghargai kualitas dan keanggunan.
                     </p>
                     <button
                         onClick={() => navigate('/products')}
@@ -42,7 +42,7 @@ export default function HomePage() {
                             transition: 'all 0.3s ease'
                         }}
                     >
-                        Shop Now
+                        Belanja Sekarang
                     </button>
                 </div>
             </section>
@@ -50,13 +50,13 @@ export default function HomePage() {
             {/* Featured Categories */}
             <section style={{ padding: '4rem 2rem', maxWidth: '1400px', margin: '0 auto' }}>
                 <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center', fontFamily: 'Playfair Display, serif' }}>
-                    Shop by Category
+                    Belanja per Kategori
                 </h2>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                     {[
-                        { title: 'Outerwear', image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=400&fit=crop' },
-                        { title: 'Tops & Shirts', image: 'https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=600&h=400&fit=crop' },
-                        { title: 'Accessories', image: 'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=600&h=400&fit=crop' },
+                        { title: 'Jaket & Outerwear', image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=400&fit=crop' },
+                        { title: 'Atasan & Kemeja', image: 'https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=600&h=400&fit=crop' },
+                        { title: 'Aksesoris', image: 'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=600&h=400&fit=crop' },
                     ].map((cat, idx) => (
                         <div key={idx} style={{
                             position: 'relative',

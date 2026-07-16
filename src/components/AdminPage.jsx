@@ -116,7 +116,7 @@ export default function AdminPage({ products, onChanged }) {
 
     return (
         <div style={{ maxWidth: 1000, margin: '0 auto', padding: '2rem' }}>
-            <h1 className="section-title" style={{ marginBottom: '1.5rem' }}>Admin Panel</h1>
+            <h1 className="section-title" style={{ marginBottom: '1.5rem' }}>Panel Admin</h1>
 
             {/* Tabs */}
             <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.75rem' }}>
@@ -142,29 +142,29 @@ export default function AdminPage({ products, onChanged }) {
                 <>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
                         <div style={{ padding: '1.5rem', border: '1px solid var(--border-color)', borderRadius: '12px', background: 'var(--secondary-bg)' }}>
-                            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Total Orders</div>
+                            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Total Pesanan</div>
                             <div style={{ fontSize: '2rem', fontWeight: '700' }}>{stats.totalOrders}</div>
                         </div>
                         <div style={{ padding: '1.5rem', border: '1px solid var(--border-color)', borderRadius: '12px', background: 'var(--secondary-bg)' }}>
-                            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Total Revenue</div>
+                            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Total Pendapatan</div>
                             <div style={{ fontSize: '2rem', fontWeight: '700' }}>{formatPrice(stats.totalRevenue)}</div>
                         </div>
                         <div style={{ padding: '1.5rem', border: '1px solid var(--border-color)', borderRadius: '12px', background: 'var(--secondary-bg)' }}>
-                            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Products</div>
+                            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Produk</div>
                             <div style={{ fontSize: '2rem', fontWeight: '700' }}>{products.length}</div>
                         </div>
                     </div>
 
                     {popular.length > 0 && (
                         <div style={{ marginBottom: '2rem', padding: '1.5rem', border: '1px solid var(--border-color)', borderRadius: '12px' }}>
-                            <h3 style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '1rem' }}>Most Sold Products</h3>
+                            <h3 style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '1rem' }}>Produk Terlaris</h3>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                                 {popular.map((p, i) => (
                                     <div key={p.id} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                                         <span style={{ width: '1.5rem', fontWeight: '700', color: 'var(--text-secondary)' }}>#{i + 1}</span>
                                         <img src={p.image} alt={p.name} style={{ width: 40, height: 50, objectFit: 'cover', borderRadius: 6 }} />
                                         <span style={{ flex: 1, fontWeight: '500' }}>{p.name}</span>
-                                        <span style={{ fontWeight: '600', color: 'var(--accent-color)' }}>{p.total_sold} sold</span>
+                                        <span style={{ fontWeight: '600', color: 'var(--accent-color)' }}>{p.total_sold} terjual</span>
                                     </div>
                                 ))}
                             </div>
@@ -176,63 +176,63 @@ export default function AdminPage({ products, onChanged }) {
             {/* Products Tab */}
             {tab === 'products' && (
                 <>
-                    <h2 className="section-title" style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Manage Products</h2>
+                    <h2 className="section-title" style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Kelola Produk</h2>
 
                     <form onSubmit={save} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '1rem', marginBottom: '2rem', padding: '1.5rem', border: '1px solid var(--border-color)', borderRadius: '12px' }}>
                         <label style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', fontSize: '0.85rem' }}>
-                            Name
+                            Nama
                             <input type="text" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required style={{ padding: '0.5rem', borderRadius: '6px', border: '1px solid var(--border-color)', background: 'var(--primary-bg)', color: 'var(--text-primary)' }} />
                         </label>
                         <label style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', fontSize: '0.85rem' }}>
-                            Price
+                            Harga
                             <input type="number" value={form.price} onChange={e => setForm({ ...form, price: e.target.value })} required style={{ padding: '0.5rem', borderRadius: '6px', border: '1px solid var(--border-color)', background: 'var(--primary-bg)', color: 'var(--text-primary)' }} />
                         </label>
                         <label style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', fontSize: '0.85rem' }}>
-                            Original Price
+                            Harga Asli
                             <input type="number" value={form.originalPrice} onChange={e => setForm({ ...form, originalPrice: e.target.value })} style={{ padding: '0.5rem', borderRadius: '6px', border: '1px solid var(--border-color)', background: 'var(--primary-bg)', color: 'var(--text-primary)' }} />
                         </label>
                         <label style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', fontSize: '0.85rem' }}>
-                            Badge
+                            Label
                             <input type="text" value={form.badge} onChange={e => setForm({ ...form, badge: e.target.value })} style={{ padding: '0.5rem', borderRadius: '6px', border: '1px solid var(--border-color)', background: 'var(--primary-bg)', color: 'var(--text-primary)' }} />
                         </label>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', fontSize: '0.85rem' }}>
-                            Product Image
+                            Gambar Produk
                             <input type="file" accept="image/*" onChange={handleFileChange} style={{ padding: '0.5rem', borderRadius: '6px', border: '1px solid var(--border-color)', background: 'var(--primary-bg)', color: 'var(--text-primary)' }} />
                             {previewUrl && <img src={previewUrl} alt="Preview" style={{ width: 50, height: 65, objectFit: 'cover', borderRadius: 6, marginTop: '0.5rem' }} />}
                             {editing && !imageFile && form.image && (
-                                <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Current: {form.image.split('/').pop()}</span>
+                                <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Saat ini: {form.image.split('/').pop()}</span>
                             )}
                         </div>
                         <label style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', fontSize: '0.85rem', gridColumn: '1 / -1' }}>
-                            Description
+                            Deskripsi
                             <textarea value={form.description} onChange={e => setForm({ ...form, description: e.target.value })} rows={2} style={{ padding: '0.5rem', borderRadius: '6px', border: '1px solid var(--border-color)', background: 'var(--primary-bg)', color: 'var(--text-primary)', resize: 'vertical' }} />
                         </label>
                         <label style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', fontSize: '0.85rem' }}>
-                            Sizes (comma-separated)
+                            Ukuran (pisahkan dengan koma)
                             <input type="text" value={form.sizes} onChange={e => setForm({ ...form, sizes: e.target.value })} placeholder="S, M, L, XL" style={{ padding: '0.5rem', borderRadius: '6px', border: '1px solid var(--border-color)', background: 'var(--primary-bg)', color: 'var(--text-primary)' }} />
                         </label>
                         <label style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', fontSize: '0.85rem' }}>
-                            Colors (comma-separated)
+                            Warna (pisahkan dengan koma)
                             <input type="text" value={form.colors} onChange={e => setForm({ ...form, colors: e.target.value })} placeholder="Black, White, Navy" style={{ padding: '0.5rem', borderRadius: '6px', border: '1px solid var(--border-color)', background: 'var(--primary-bg)', color: 'var(--text-primary)' }} />
                         </label>
                         <label style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', fontSize: '0.85rem' }}>
-                            Stock
+                            Stok
                             <input type="number" value={form.stock} onChange={e => setForm({ ...form, stock: e.target.value })} placeholder="0" min="0" style={{ padding: '0.5rem', borderRadius: '6px', border: '1px solid var(--border-color)', background: 'var(--primary-bg)', color: 'var(--text-primary)' }} />
                         </label>
                         <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'end' }}>
-                            <button type="submit" className="filter-btn active" style={{ cursor: 'pointer' }}>{editing ? 'Update' : 'Add'}</button>
-                            {editing && <button type="button" onClick={cancel} className="filter-btn" style={{ cursor: 'pointer' }}>Cancel</button>}
+                            <button type="submit" className="filter-btn active" style={{ cursor: 'pointer' }}>{editing ? 'Perbarui' : 'Tambah'}</button>
+                            {editing && <button type="button" onClick={cancel} className="filter-btn" style={{ cursor: 'pointer' }}>Batal</button>}
                         </div>
                     </form>
 
                     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
                         <thead>
                             <tr style={{ textAlign: 'left', borderBottom: '2px solid var(--border-color)' }}>
-                                <th style={{ padding: '0.5rem' }}>Image</th>
-                                <th style={{ padding: '0.5rem' }}>Name</th>
-                                <th style={{ padding: '0.5rem' }}>Price</th>
-                                <th style={{ padding: '0.5rem' }}>Stock</th>
-                                <th style={{ padding: '0.5rem' }}>Badge</th>
+                                <th style={{ padding: '0.5rem' }}>Gambar</th>
+                                <th style={{ padding: '0.5rem' }}>Nama</th>
+                                <th style={{ padding: '0.5rem' }}>Harga</th>
+                                <th style={{ padding: '0.5rem' }}>Stok</th>
+                                <th style={{ padding: '0.5rem' }}>Label</th>
                                 <th style={{ padding: '0.5rem' }}></th>
                             </tr>
                         </thead>
@@ -246,7 +246,7 @@ export default function AdminPage({ products, onChanged }) {
                                     <td style={{ padding: '0.5rem' }}>{p.badge || '-'}</td>
                                     <td style={{ padding: '0.5rem', display: 'flex', gap: '0.5rem' }}>
                                         <button onClick={() => edit(p)} className="filter-btn" style={{ cursor: 'pointer' }}>Edit</button>
-                                        <button onClick={() => remove(p.id)} className="filter-btn" style={{ cursor: 'pointer' }}>Delete</button>
+                                        <button onClick={() => remove(p.id)} className="filter-btn" style={{ cursor: 'pointer' }}>Hapus</button>
                                     </td>
                                 </tr>
                             ))}
@@ -258,20 +258,20 @@ export default function AdminPage({ products, onChanged }) {
             {/* Orders Tab */}
             {tab === 'orders' && (
                 <>
-                    <h2 className="section-title" style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Manage Orders</h2>
+                    <h2 className="section-title" style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Kelola Pesanan</h2>
 
                     {orders.length === 0 ? (
-                        <p style={{ color: 'var(--text-secondary)', textAlign: 'center', padding: '3rem' }}>No orders yet</p>
+                        <p style={{ color: 'var(--text-secondary)', textAlign: 'center', padding: '3rem' }}>Belum ada pesanan</p>
                     ) : (
                         <div style={{ overflowX: 'auto' }}>
                             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
                                 <thead>
                                     <tr style={{ textAlign: 'left', borderBottom: '2px solid var(--border-color)' }}>
-                                        <th style={{ padding: '0.5rem' }}>Order ID</th>
-                                        <th style={{ padding: '0.5rem' }}>Items</th>
+                                        <th style={{ padding: '0.5rem' }}>ID Pesanan</th>
+                                        <th style={{ padding: '0.5rem' }}>Item</th>
                                         <th style={{ padding: '0.5rem' }}>Total</th>
                                         <th style={{ padding: '0.5rem' }}>Status</th>
-                                        <th style={{ padding: '0.5rem' }}>Date</th>
+                                        <th style={{ padding: '0.5rem' }}>Tanggal</th>
                                         <th style={{ padding: '0.5rem' }}></th>
                                     </tr>
                                 </thead>
@@ -279,7 +279,7 @@ export default function AdminPage({ products, onChanged }) {
                                     {orders.map(o => (
                                         <tr key={o.id} style={{ borderBottom: '1px solid var(--border-color)' }}>
                                             <td style={{ padding: '0.5rem', fontFamily: 'monospace', fontSize: '0.8rem', maxWidth: '120px', overflow: 'hidden', textOverflow: 'ellipsis' }}>{o.id.slice(0, 8)}...</td>
-                                            <td style={{ padding: '0.5rem' }}>{(o.order_items || []).length} item(s)</td>
+                                            <td style={{ padding: '0.5rem' }}>{(o.order_items || []).length} item</td>
                                             <td style={{ padding: '0.5rem', fontWeight: '600' }}>{formatPrice(Number(o.total))}</td>
                                             <td style={{ padding: '0.5rem' }}>
                                                 <span style={{
@@ -297,7 +297,7 @@ export default function AdminPage({ products, onChanged }) {
                                             <td style={{ padding: '0.5rem', display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
                                                 {o.status === 'pending' && (
                                                     <button onClick={() => handleConfirm(o.id)} className="filter-btn active" style={{ cursor: 'pointer', fontSize: '0.8rem', padding: '0.3rem 0.8rem' }}>
-                                                        <i className="fas fa-check" style={{ marginRight: '0.3rem' }}></i>Confirm
+                                                        <i className="fas fa-check" style={{ marginRight: '0.3rem' }}></i>Konfirmasi
                                                     </button>
                                                 )}
                                                 {['confirmed', 'shipped'].includes(o.status) && (
@@ -311,14 +311,14 @@ export default function AdminPage({ products, onChanged }) {
                                                             fontSize: '0.8rem', cursor: 'pointer',
                                                         }}
                                                     >
-                                                        <option value="confirmed">Confirmed</option>
-                                                        <option value="shipped">Shipped</option>
-                                                        <option value="completed">Completed</option>
-                                                        <option value="cancelled">Cancelled</option>
+                                                        <option value="confirmed">Dikonfirmasi</option>
+                                                        <option value="shipped">Dikirim</option>
+                                                        <option value="completed">Selesai</option>
+                                                        <option value="cancelled">Dibatalkan</option>
                                                     </select>
                                                 )}
-                                                {o.status === 'completed' && <span style={{ color: '#2ecc71', fontSize: '0.8rem' }}>Done</span>}
-                                                {o.status === 'cancelled' && <span style={{ color: '#e74c3c', fontSize: '0.8rem' }}>Cancelled</span>}
+                                                {o.status === 'completed' && <span style={{ color: '#2ecc71', fontSize: '0.8rem' }}>Selesai</span>}
+                                                {o.status === 'cancelled' && <span style={{ color: '#e74c3c', fontSize: '0.8rem' }}>Dibatalkan</span>}
                                             </td>
                                         </tr>
                                     ))}
