@@ -62,6 +62,16 @@ export async function deleteProduct(id) {
     if (error) throw error;
 }
 
+export async function getLowStockProducts(threshold = 5) {
+    const { data, error } = await supabase
+        .from('products')
+        .select('id, name, image, stock, badge')
+        .lt('stock', threshold)
+        .order('stock', { ascending: true });
+    if (error) throw error;
+    return data ?? [];
+}
+
 export async function decrementStock(productId, qty) {
     const { data: product, error: fetchError } = await supabase
         .from('products')

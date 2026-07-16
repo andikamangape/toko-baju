@@ -68,6 +68,15 @@ export async function getDashboardStats() {
     return { totalOrders, totalRevenue };
 }
 
+export async function getOrdersInRange(start, end) {
+    let query = supabase.from('orders').select('*, order_items(*)').order('created_at', { ascending: false });
+    if (start) query = query.gte('created_at', start.toISOString());
+    if (end) query = query.lte('created_at', end.toISOString());
+    const { data, error } = await query;
+    if (error) throw error;
+    return data ?? [];
+}
+
 export async function getPopularProducts() {
     const { data, error } = await supabase.from('popular_products').select('*').limit(5);
     if (error) throw error;
